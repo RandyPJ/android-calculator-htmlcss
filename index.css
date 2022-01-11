@@ -7,21 +7,20 @@
     --primary: rgb(93, 147, 248);
     --pink:rgb(236, 214, 218);
     --dark: rgba(31, 29, 29, 0.521);
+    --sm: 12px;
 }
 
 .body{
-    margin: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -o-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;   
     font-family: 'Roboto', sans-serif;
+    margin: 0;
+    box-sizing: border-box;   
 }
 
 .container{
-    display: grid;
-    place-items: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
 }
 
 .calculator{
@@ -31,6 +30,7 @@
     width: 300px;
     height: 550px;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .screen{
@@ -49,9 +49,39 @@
     cursor: pointer;
 }
 
+.system-options {
+    display: none;
+    align-items: left;
+}
+
+.system-options li {
+    padding: 4px 14px;
+}
+
+.system-options.absolute{
+    display: block;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 170px;
+    list-style: none;
+    color: var(--white);
+    font-size: var(--sm);
+    background-color: var(--body-black);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 1px 1px 1px black;
+}
+
 .dots{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.dots:hover{
+    background-color: var(--screen-black);
 }
 
 .dots span{
@@ -73,13 +103,19 @@
     padding: 10px;
 }
 
+.text:active,
+.text:focus{
+    border: none;
+    outline: none;
+}
+
 .underscore{
     background-color: var(--white);
     width: 16px;
     height: 4px;
     border-radius: 6px;
     margin: auto;
-    margin-top: -14px;
+    margin-top: -10px;
     cursor:grabbing;
 }
 
@@ -89,6 +125,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 20px;
+    cursor: pointer;
 }
 
 .options span{
@@ -102,17 +139,8 @@
 .options .chevron{
     width: 25px;
     height: 25px;
-    display: grid;
-    place-items: center;
     background-color: var(--screen-black);
     border-radius: 50%;
-}
-
- svg{
-    fill: var(--white);
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
 }
 
 .more-options{

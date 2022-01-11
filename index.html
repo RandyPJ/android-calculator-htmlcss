@@ -5,23 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+   
     <link rel="stylesheet" href="index.css">
 
-    <title>Document</title>
+    <title>Android Calculator Design</title>
 
 </head>
 <body>
     <div class="container"> 
+        
         <div class="calculator">
             <div class="screen">
                 <div class="screen-navbar">
-                    <div class="dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <div id="dots" class="dots">
+                        <img src="./dots.svg" alt="">
                     </div>
                 </div>
+
+                <ul id="systemOptions" class="system-options">
+                    <li>History</li>
+                    <li>Choose theme</li>
+                    <li>Feedback</li>
+                    <li>Help</li>
+                </ul>
+
                 <input class="text" type="text" name="txt" id="txt">
+
                 <div class="underscore"></div>
             </div>
     
@@ -32,9 +44,7 @@
                 <span>!</span>
 
                 <div id="chevron" class="chevron">
-                    <svg id="iconChevron" viewBox="0 0 24 24">
-                        <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-                    </svg>
+                    <img id="icon" src="./chevrondown.svg" alt="">
                 </div>
             </div>
 
@@ -70,22 +80,38 @@
                 <button class="btn btn-dark">.</button>
                 <button class="btn btn-dark">X</button>
                 <button class="btn btn-pink">=</button>
+               
             </div>
+
+          
         </div>
     </div>
 
     <script>
+        let icon = document.getElementById("icon");
         let btnMoreOptions = document.getElementById('chevron');
         let moreOptions = document.getElementById("moreOptions");
+        let dots = document.getElementById("dots");
+        let systemOptions = document.getElementById("systemOptions");
 
         btnMoreOptions.onclick = () => {
             if (moreOptions.className === "more-options") {
-                moreOptions.className += " grid"
+                moreOptions.className += " grid";
+                icon.src = "./chevronup.svg";
             }else{
                 moreOptions.className = "more-options";
+                icon.src = "./chevrondown.svg";
             }
-            
         }
+
+        dots.onclick = () => {
+            if (systemOptions.className === "system-options") {
+                systemOptions.className += " absolute"
+            }else{
+                systemOptions.className = "system-options";
+            }
+        }
+        
     </script>
 </body>
 </html>
